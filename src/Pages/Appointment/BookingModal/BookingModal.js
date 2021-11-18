@@ -44,7 +44,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date, setBooki
             date: date.toLocaleDateString()
         }
         // send to the server
-        fetch('https://stark-caverns-04377.herokuapp.com/appointments', {
+        fetch('https://shrouded-shore-12395.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

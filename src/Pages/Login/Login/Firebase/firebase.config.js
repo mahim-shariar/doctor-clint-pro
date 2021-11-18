@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY,
-    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_APP_ID,
-};
+    apiKey: "AIzaSyDJ7fa376R9KwUfpAfHMHn6FEKD4JpoxXE",
+    authDomain: "pro-clint-ad019.firebaseapp.com",
+    projectId: "pro-clint-ad019",
+    storageBucket: "pro-clint-ad019.appspot.com",
+    messagingSenderId: "245016991916",
+    appId: "1:245016991916:web:518f387b49dddcac1da709"
+  };
 export default firebaseConfig;

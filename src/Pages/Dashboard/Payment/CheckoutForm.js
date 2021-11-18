@@ -15,7 +15,7 @@ const CheckoutForm = ({ appointment }) => {
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(() => {
-        fetch('https://stark-caverns-04377.herokuapp.com/create-payment-intent', {
+        fetch('https://shrouded-shore-12395.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -81,7 +81,7 @@ const CheckoutForm = ({ appointment }) => {
                 last4: paymentMethod.card.last4,
                 transaction: paymentIntent.client_secret.slice('_secret')[0]
             }
-            const url = `https://stark-caverns-04377.herokuapp.com/appointments/${_id}`;
+            const url = `https://shrouded-shore-12395.herokuapp.com/appointments/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

@@ -1,38 +1,35 @@
 import React, { useState } from 'react';
-import { Button, Input, TextField } from '@mui/material';
+import { Alert, Button, Input, TextField } from '@mui/material';
 
 const AddDoctor = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [image, setImage] = useState(null);
-    const [success, setSuccess] = useState(false);
+    const [success,setSuccess] = useState(false)
+    const [name,setName] = useState('');
+    const [email,setEmail] = useState('');
+    const [image,setImage] = useState(null);
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        if (!image) {
-            return;
+    let handleSubmit = e =>{
+        setSuccess(false)
+        if(!image){
+            return
         }
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('image', image);
-
-        fetch('https://stark-caverns-04377.herokuapp.com/doctors', {
-            method: 'POST',
-            body: formData
+        const fromData = new FormData();
+        fromData.append('name',name)
+        fromData.append('email',email)
+        fromData.append('image',image)
+        fetch('https://shrouded-shore-12395.herokuapp.com/doctors',{
+            method:"POST",
+            body:fromData
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    setSuccess('Doctor added successfully')
-                    console.log('doctor added successfully')
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.insertedId){
+                console.log('doctor added suc');
+                setSuccess(true)
+            }
+        })
+        e.preventDefault();
     }
-
+    
     return (
         <div>
             <h3>Add A Doctor</h3>
@@ -41,7 +38,7 @@ const AddDoctor = () => {
                     sx={{ width: '50%' }}
                     label="Name"
                     required
-                    onChange={e => setName(e.target.value)}
+                    onChange={e=> setName(e.target.value)}
                     variant="standard" />
                 <br />
                 <TextField
@@ -49,20 +46,21 @@ const AddDoctor = () => {
                     label="Email"
                     type="email"
                     required
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={e=> setEmail(e.target.value)}
                     variant="standard" />
                 <br />
                 <Input
                     accept="image/*"
                     type="file"
-                    onChange={e => setImage(e.target.files[0])}
+                    onChange={e=>setImage(e.target.files[0])}
+                    
                 />
                 <br />
-                <Button variant="contained" type="submit">
+                <Button variant="contained" type="submit" onClick={handleSubmit} >
                     Add Doctor
                 </Button>
             </form>
-            {success && <p style={{ color: 'green' }}>{success}</p>}
+            {success && <Alert severity='success' > Doctor added Successfully </Alert>}
         </div>
     );
 };

@@ -5,13 +5,13 @@ import CheckoutForm from './CheckoutForm';
 import { Elements } from '@stripe/react-stripe-js';
 
 
-const stripePromise = loadStripe('pk_test_51JvTmwKKPIXU1Tgx8SiIyxMFYTIyOKZFEBJQhEUaFN444MPUgsn6zscUL43IVaWtVmJueXwhyPsNeThjc4Pu2RtN00ZO7uUvaI')
+const stripePromise = loadStripe('pk_test_51JwY7aFnvKDZKnOoyOw9kER7KdVrcLHPHd2I2pcLDen062kHfoAAzU6wurKUH7RPfhnV4GhmfcVhomt7HGlvFHhn00CZdp0LtL')
 
 const Payment = () => {
     const { appointmentId } = useParams();
     const [appointment, setAppointment] = useState({});
     useEffect(() => {
-        fetch(`https://stark-caverns-04377.herokuapp.com/appointments/${appointmentId}`)
+        fetch(`https://shrouded-shore-12395.herokuapp.com/appointments/${appointmentId}`)
             .then(res => res.json())
             .then(data => setAppointment(data));
     }, [appointmentId]);
